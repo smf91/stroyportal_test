@@ -1,0 +1,169 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+$color1: #708598;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "OpenSans";
+//</Шрифт по умолчанию>=========================================================================================
+
+// Импорт шрифтов=========================================================================================================
+@import "fonts";
+// Импорт обнуляющего стиля=====================================================================================================
+@import "null";
+// ________________________________________________________________________________
+.container {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    margin-top: 8px;
+    overflow: hidden;
+    min-height: 100%;
+}
+// ________________________________________________
+.header {
+    display: flex;
+    flex-direction: column;
+    &__top {
+        color: $color1;
+        font-size: 12px;
+        line-height: 20px;
+        display: flex;
+        justify-content: space-between;
+        .location {
+            display: flex;
+            :last-child {
+                margin-right: 8px;
+            }
+        }
+        .nav {
+            display: flex;
+            :nth-child(2) {
+                margin: 0 24px;
+            }
+            :last-child {
+                position: relative;
+                margin: 0 25px 0 0;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: -20px;
+                    top: 2px;
+                    border: solid $color1;
+                    border-width: 0 1px 1px 0;
+                    display: inline-block;
+                    padding: 6px 4px 4px 5px;
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    &__bottom {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 14px;
+        &_logo {
+        }
+        &_catalog {
+            margin-left: 30px;
+            button {
+                padding: 0 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 600;
+                background-color: #fed83d;
+                height: 40px;
+                width: 135px;
+                border-radius: 4px;
+                .bgm {
+                    width: 30px;
+                    height: 3px;
+                    background-color: black;
+                    margin: 3px 0;
+                }
+            }
+        }
+        &_search {
+        }
+        &_list {
+            height: 40px;
+            width: 110px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            img {
+                padding: 0 8px 0 0;
+            }
+        }
+        &_prfile {
+            font-size: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background: #9b51e0;
+        }
+    }
+}
+
+.autocomplite {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        right: 2%;
+        top: 10px;
+        height: 20px;
+        width: 20px;
+        background-image: url("./../img/search.png");
+    }
+    input {
+        border: 1px solid $color1;
+        border-radius: 4px;
+        width: 520px;
+        height: 40px;
+    }
+    &_results {
+        padding: 0;
+        margin: 0;
+        border: 1px solid #eeeeee;
+        height: 120px;
+        overflow: auto;
+    }
+    &_result {
+        list-style: none;
+        text-align: left;
+        padding: 4px 2px;
+        cursor: pointer;
+    }
+    &_result:hover {
+        background-color: #6fcdd5;
+        color: white;
+    }
+}

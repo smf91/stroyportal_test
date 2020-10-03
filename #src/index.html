@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <title>gulp</title>
+</head>
+
+<body>
+    <!-- @@include('_header.html') -->
+    <div class="container">
+        <div class="wrapper">
+            <div class="header">
+                <div class="header__top">
+                    <div class="location">
+                        <img src="./img/location.png" alt="">
+                        <div>Волгоградская область</div>
+                    </div>
+                    <div class="nav">
+                        <div>Тендеры</div>
+                        <div>База подрядчиков</div>
+                        <div>Другие сервисы </div>
+                    </div>
+                </div>
+                <div class="header__bottom">
+                    <div class="header__bottom_logo">
+                        <img src="./img/Group.png" alt="">
+                    </div>
+                    <div class="header__bottom_catalog">
+                        <button>
+                            <div>
+                                <div class="bgm"></div>
+                                <div class="bgm"></div>
+                                <div class="bgm"></div>
+                            </div>
+                            Каталог
+                        </button>
+                    </div>
+                    <div id='vue' class="header__bottom_search">
+                        <div class='autocomplite'>
+                            <input type="text" placeholder=" введите название города......" v-model="textSearch"
+                                @input="Change" @click="getCounter" />
+                            <ul class="autocomplite_results" v-show='show'>
+                                <li class="autocomplite_result" @click='setResults(result)' v-for='(result,i in result'>
+                                    {{result}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header__bottom_list">
+                        <img src="./img/list.png" alt="">
+                        Список
+                    </div>
+                    <div class="header__bottom_prfile">
+                        <div>
+                            A
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @@include('_footer.html') -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
